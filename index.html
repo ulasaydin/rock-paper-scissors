@@ -14,7 +14,7 @@
     } 
   }
 
-  function playGroung(playerSelection,computerSelection) {
+  function playRound(playerSelection,computerSelection) {
       playerSelection = playerSelection.toLowerCase();
       computerSelection = computerSelection.toLowerCase();
       if(playerSelection == "rock"){
@@ -64,8 +64,36 @@
 function game(){
     let playerScore = 0;
     let computerScore = 0;
-    let playerSelection1 = prompt("Pick \"Rock\" \"Paper\" or \"Scissors\" ");
+    let playerSelection1 = window.prompt("Pick \"Rock\" \"Paper\" or \"Scissors\" ");
+    let firstRound = playRound(playerSelection1,computerPlay());
+    if(firstRound == "Win") playerScore++;
+    else if(firstRound == "Lose") computerScore++;
 
+    let playerSelection2 = window.prompt("Pick \"Rock\" \"Paper\" or \"Scissors\" ");
+    let secondRound = playRound(playerSelection2,computerPlay());
+    if(secondRound == "Win") playerScore++;
+    else if(secondRound == "Lose") computerScore++;
+
+    let playerSelection3 = window.prompt("Pick \"Rock\" \"Paper\" or \"Scissors\" ");
+    let thirdRound = playRound(playerSelection1,computerPlay());
+    if(thirdRound == "Win") playerScore++;
+    else if(thirdRound == "Lose") computerScore++;
+
+    let playerSelection4 = window.prompt("Pick \"Rock\" \"Paper\" or \"Scissors\" ");
+    let forthRound = playRound(playerSelection4,computerPlay());
+    if(forthRound == "Win") playerScore++;
+    else if(forthRound == "Lose") computerScore++;    
+
+    let playerSelection5 = window.prompt("Pick \"Rock\" \"Paper\" or \"Scissors\" ");
+    let fifthRound = playRound(playerSelection5,computerPlay());
+    if(fifthRound == "Win") playerScore++;
+    else if(fifthRound == "Lose") computerScore++;
+
+    if(playerScore>computerScore) console.log("You Win! Your Score: " + playerScore + " Computer's Score: " + computerScore + ".");
+    else if(playerScore<computerScore) console.log("You Lose! Your Score: " + playerScore + " Computer's Score: " + computerScore + ".");
+    else console.log("Draw! Your Score: " + playerScore + " Computer's Score: " + computerScore + ".");
 }
+
+
 
 </script>
