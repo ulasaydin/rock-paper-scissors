@@ -1,5 +1,71 @@
 <!DOCTYPE html>
 
 <script>
-  
+  function computerPlay(){
+    let randomNumber = Math.random();
+    if(randomNumber%3 == 0){
+        return "Rock";
+    }
+    else if(randomNumber%3 == 1) {
+        return "Paper";
+    }
+    else if(randomNumber%3 == 2){
+        return "Scissors";
+    } 
+  }
+
+  function playGroung(playerSelection,computerSelection) {
+      playerSelection = playerSelection.toLowerCase();
+      computerSelection = computerSelection.toLowerCase();
+      if(playerSelection == "rock"){
+        if(computerSelection == "rock") {
+            return "Draw";
+            console.log("Draw");
+        }
+        else if(computerSelection == "paper"){
+            console.log("You Lose. Paper beats Rock.");
+            return "Lose";
+            
+        }
+        else if(computerSelection == "scissors"){
+            console.log("You Win. Rock beats Scissors.");
+            return "Win"
+        }
+      }
+      else if(playerSelection == "paper") {
+        if(computerSelection == "rock") {
+            console.log("You Win. Paper beats Rock.");
+            return "Win";
+        }
+        else if(computerSelection == "paper"){
+            console.log("Draw.");
+            return "Draw";
+        }
+        else if(computerSelection == "scissors"){
+            console.log("You Lose. Scissors beat Paper.");
+            return "Lose";
+        }
+      }
+      else if(playerSelection == "scissors") {
+        if(computerSelection == "rock") {
+            console.log("You Lose. Rocl beats Scissors.");
+            return "Lose";
+        }
+        else if(computerSelection == "paper"){
+            console.log("You Win. Scissors beat Paper.");
+            return "Win";
+        }
+        else if(computerSelection == "scissors"){
+            console.log("Draw.");
+            return "Draw";
+        }
+      }
+  }
+function game(){
+    let playerScore = 0;
+    let computerScore = 0;
+    let playerSelection1 = prompt("Pick \"Rock\" \"Paper\" or \"Scissors\" ");
+
+}
+
 </script>
