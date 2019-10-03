@@ -3,54 +3,7 @@ function computerPlay(){
     return actions[Math.floor(Math.random()*3)];
     } 
 
-  function playRound(playerSelection,computerSelection) {
-      playerSelection = String(playerSelection).toLowerCase();
-      computerSelection = String(computerSelection).toLowerCase();
-      if(playerSelection == "rock"){
-        if(computerSelection == "rock") {
-            return "Draw";
-            console.log("Draw");
-        }
-        else if(computerSelection == "paper"){
-            console.log("You Lose. Paper beats Rock.");
-            return "Lose";
-            
-        }
-        else if(computerSelection == "scissors"){
-            console.log("You Win. Rock beats Scissors.");
-            return "Win"
-        }
-      }
-      else if(playerSelection == "paper") {
-        if(computerSelection == "rock") {
-            console.log("You Win. Paper beats Rock.");
-            return "Win";
-        }
-        else if(computerSelection == "paper"){
-            console.log("Draw.");
-            return "Draw";
-        }
-        else if(computerSelection == "scissors"){
-            console.log("You Lose. Scissors beat Paper.");
-            return "Lose";
-        }
-      }
-      else if(playerSelection == "scissors") {
-        if(computerSelection == "rock") {
-            console.log("You Lose. Rock beats Scissors.");
-            return "Lose";
-        }
-        else if(computerSelection == "paper"){
-            console.log("You Win. Scissors beat Paper.");
-            return "Win";
-        }
-        else if(computerSelection == "scissors"){
-            console.log("Draw.");
-            return "Draw";
-        }
-      }
-  }
-function game(){
+function game1(){
     let playerScore = 0;
     let computerScore = 0;
     let computerSelection1 = computerPlay();
@@ -87,3 +40,111 @@ function game(){
     else if(playerScore<computerScore) console.log("You Lose! Your Score: " + playerScore + " Computer's Score: " + computerScore + ".");
     else console.log("Draw! Your Score: " + playerScore + " Computer's Score: " + computerScore + ".");
 }
+
+let userScore = 0;
+let computerScore = 0;
+const userScoreDOM = document.getElementById("user-score");
+const computerScoreDOM = document.getElementById("computer-score");
+const scoreTableDOM = document.querySelector(".score-table");
+const statusDOM = document.querySelector(".status > p");
+const rockDOM = document.getElementById("rock");
+const paperDOM = document.getElementById("paper");
+const scissorsDOM = document.getElementById("scissors");
+
+
+
+function win(){
+    userScore++
+    userScoreDOM.innerHTML = userScore;
+    computerScore.innerHTML = computerScore;
+}
+
+function lose(){
+            computerScore ++
+            userScoreDOM.innerHTML = userScore;
+            computerScore.innerHTML = computerScore;
+            statusDOM.innerHTML = computerSelection + "beats" + playerSelection + ". You Lost.";
+}
+
+function draw(){
+    userScoreDOM.innerHTML = userScore;
+    computerScore.innerHTML = computerScore;
+    statusDOM.innerHTML = "Draw!";
+}
+
+function playRound(playerSelection,computerSelection) {
+    playerSelection = String(playerSelection).toLowerCase();
+    computerSelection = String(computerSelection).toLowerCase();
+    if(playerSelection == "rock"){
+      if(computerSelection == "rock") {
+          draw();
+            
+      }
+      else if(computerSelection == "paper"){
+            computerScore ++;
+            computerScoreDOM.innerHTML = computerScore;
+            userScoreDOM.innerHTML = userScore;
+            statusDOM.innerHTML = computerSelection[0].toUpperCase() + computerSelection.slice(1) + " beats " + playerSelection[0].toUpperCase() + playerSelection.slice(1) + ". You Lost.";
+          
+      }
+      else if(computerSelection == "scissors"){
+            userScore++
+            userScoreDOM.innerHTML = userScore;
+            computerScore.innerHTML = computerScore;
+            statusDOM.innerHTML = playerSelection[0].toUpperCase() + playerSelection.slice(1) + " beats " + computerSelection[0].toUpperCase() + computerSelection.slice(1) + ". You win.";
+      }
+    }
+    else if(playerSelection == "paper") {
+      if(computerSelection == "rock") {
+            userScore++
+            userScoreDOM.innerHTML = userScore;
+            computerScore.innerHTML = computerScore;
+            statusDOM.innerHTML = playerSelection[0].toUpperCase() + playerSelection.slice(1) + " beats " + computerSelection[0].toUpperCase() + computerSelection.slice(1) + ". You win.";
+      }
+      else if(computerSelection == "paper"){
+            userScoreDOM.innerHTML = userScore;
+            computerScore.innerHTML = computerScore;
+            statusDOM.innerHTML = "Draw!";
+      }
+      else if(computerSelection == "scissors"){
+            computerScore ++
+            userScoreDOM.innerHTML = userScore;
+            computerScoreDOM.innerHTML = computerScore;
+            statusDOM.innerHTML = computerSelection[0].toUpperCase() + computerSelection.slice(1) + " beats " + playerSelection[0].toUpperCase() + playerSelection.slice(1) + ". You Lost.";
+      }
+    }
+    else if(playerSelection == "scissors") {
+      if(computerSelection == "rock") {
+            computerScore ++
+            userScoreDOM.innerHTML = userScore;
+            computerScoreDOM.innerHTML = computerScore;
+            statusDOM.innerHTML = computerSelection[0].toUpperCase() + computerSelection.slice(1) + " beats " + playerSelection[0].toUpperCase() + playerSelection.slice(1) + ". You Lost.";
+      }
+      else if(computerSelection == "paper"){
+            userScore++
+            userScoreDOM.innerHTML = userScore;
+            computerScore.innerHTML = computerScore;
+            statusDOM.innerHTML = playerSelection[0].toUpperCase() + playerSelection.slice(1) + " beats " + computerSelection[0].toUpperCase() + computerSelection.slice(1) + ". You win.";
+      }
+      else if(computerSelection == "scissors"){
+            userScoreDOM.innerHTML = userScore;
+            computerScore.innerHTML = computerScore;
+            statusDOM.innerHTML = "Draw!";
+      }
+    }
+}
+
+function game() {
+    rockDOM.addEventListener("click", function(){
+        playRound("rock",computerPlay());
+    } )
+    
+    paperDOM.addEventListener("click", function(){
+        playRound("paper",computerPlay());
+    } )
+
+    scissorsDOM.addEventListener("click", function(){
+        playRound("scissors",computerPlay());
+    } )
+}
+game();

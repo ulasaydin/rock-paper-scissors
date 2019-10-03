@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header {
+    font-family: 'Montserrat', sans-serif;
+    padding: 30px;
+    font-size: 25pt;
+
+}
+
+header >h1 {
+    text-align: center;
+}
+
+body {
+    background-color: #fde900;
+}
+
+.score-table {
+    width: 500px;
+    height: 200px;
+    background-color: white;
+    margin: 20px auto;
+    box-shadow: 15px 15px;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    text-align: center;
+    padding-top: 70px;
+    font-size: 30pt;
+    font-weight: 700;
+}
+
+.status {
+    width: 800px;
+    height: 80px;
+    line-height: 80px;
+    height: 80px;
+    background-color: white;
+    margin: 40px auto;
+    box-shadow: 15px 15px;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    text-align: center;
+    padding-top:0;
+    font-size: 30pt;
+    font-weight: 700;
+}
+
+.title {
+    padding: 6px 30px;
+
+}
+
+#user-title {
+    position: absolute;
+    top: 10px;
+    left: 35px;
+    font-size: 30pt;
+}
+
+#computer-title {
+    position: absolute;
+    top: 10px;
+    right: 6px;
+    font-size: 30pt;
+}
+
+#user-score {
+    padding-right: 65px;
+    padding-left: 0px;
+    font-size: 60pt;
+}
+
+#computer-score {
+    padding-left: 50px;
+    font-size: 60pt;
+}
+
+.options {
+    text-align: center;
+    position: absolute;
+    transition: all 0.3s ease;
+    
+}
+
+.choice {
+    padding-top: 20px;
+    display: inline-block;
+    width: 20%;
+    transition: all 0.3s ease;
+}
+
+.shadow {
+    position: relative;
+    top: -120px;
+    left: 10px;
+    display: inline-block;
+    opacity: 50;
+    z-index: -5;
+}
+#scissors-shadow {
+    top: -135px;
+}
+
+.choice:hover{
+    position: relative;
+    top:-10px;
+    cursor: pointer;
+    
+}
