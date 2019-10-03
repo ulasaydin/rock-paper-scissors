@@ -2,7 +2,7 @@ function computerPlay(){
     actions = ["rock","paper","scissors"];
     return actions[Math.floor(Math.random()*3)];
     } 
-
+/*
 function game1(){
     let playerScore = 0;
     let computerScore = 0;
@@ -40,6 +40,7 @@ function game1(){
     else if(playerScore<computerScore) console.log("You Lose! Your Score: " + playerScore + " Computer's Score: " + computerScore + ".");
     else console.log("Draw! Your Score: " + playerScore + " Computer's Score: " + computerScore + ".");
 }
+*/
 
 let userScore = 0;
 let computerScore = 0;
@@ -51,26 +52,6 @@ const rockDOM = document.getElementById("rock");
 const paperDOM = document.getElementById("paper");
 const scissorsDOM = document.getElementById("scissors");
 
-
-
-function win(){
-    userScore++
-    userScoreDOM.innerHTML = userScore;
-    computerScore.innerHTML = computerScore;
-}
-
-function lose(){
-            computerScore ++
-            userScoreDOM.innerHTML = userScore;
-            computerScore.innerHTML = computerScore;
-            statusDOM.innerHTML = computerSelection + "beats" + playerSelection + ". You Lost.";
-}
-
-function draw(){
-    userScoreDOM.innerHTML = userScore;
-    computerScore.innerHTML = computerScore;
-    statusDOM.innerHTML = "Draw!";
-}
 
 function playRound(playerSelection,computerSelection) {
     playerSelection = String(playerSelection).toLowerCase();
