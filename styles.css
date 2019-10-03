@@ -9,7 +9,7 @@
 header {
     font-family: 'Montserrat', sans-serif;
     padding: 30px;
-    font-size: 25pt;
+    font-size: 30pt;
 
 }
 
@@ -89,7 +89,7 @@ body {
 }
 
 .choice {
-    padding-top: 20px;
+    padding-top: 40px;
     display: inline-block;
     width: 20%;
     transition: all 0.3s ease;
@@ -104,12 +104,12 @@ body {
     z-index: -5;
 }
 #scissors-shadow {
-    top: -135px;
+    top: -105px;
 }
 
 .choice:hover{
     position: relative;
-    top:-10px;
+    top:-15px;
     cursor: pointer;
     
 }
